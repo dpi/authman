@@ -5,11 +5,18 @@
     "require": {
         "php": "^7.3",
         "league/oauth2-client": "^2.5",
-        "ext-json": "*"
+        "ext-json": "*",
+        "drupal/key": "1.x-dev#d9366bbab4105b4f18c6ef3491dbbf007abe7b51"
     },
     "require-dev": {
         "phpstan/phpstan": "0.12.42",
         "mglaman/phpstan-drupal": "^0.12.6",
         "phpstan/phpstan-deprecation-rules": "^0.12.5"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ]
 }
