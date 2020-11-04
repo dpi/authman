@@ -21,6 +21,8 @@ use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Integration test for authorization code.
+ *
+ * @group authman
  */
 final class AuthmanAuthorizationCodeTest extends KernelTestBase {
 

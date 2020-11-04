@@ -18,6 +18,8 @@ use GuzzleHttp\Psr7\Response;
 
 /**
  * Integration test for client credentials.
+ *
+ * @group authman
  */
 final class AuthmanClientCredentialTest extends KernelTestBase {
 

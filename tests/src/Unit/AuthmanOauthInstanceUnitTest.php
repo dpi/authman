@@ -12,6 +12,8 @@ use League\OAuth2\Client\Token\AccessToken;
 
 /**
  * Instance testing.
+ *
+ * @group authman
  */
 final class AuthmanOauthInstanceUnitTest extends UnitTestCase {
 

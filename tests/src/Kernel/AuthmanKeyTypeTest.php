@@ -10,6 +10,7 @@ use Drupal\Tests\authman\Traits\AuthmanConfigTrait;
 /**
  * Tests key types.
  *
+ * @group authman
  * @covers \Drupal\authman\Plugin\KeyType\OauthAccessTokenKeyType
  * @covers \Drupal\authman\Plugin\KeyType\OauthClientKeyType
  * @covers \Drupal\authman\Plugin\KeyType\OauthKeyTypeInterface

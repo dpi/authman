@@ -14,7 +14,8 @@ Note: Authman instance config and associated client credentials, and optionally
 $oauthFactory = \Drupal::service('authman.oauth');
 try {
   $authmanInstance = $oauthFactory->get('ID_OF_authman_auth_CONFIG');
-  $response = $authmanInstance->authenticatedRequest('GET', 'https://sample.api.example.com/v2/mydata?page=2');
+  $response = $authmanInstance
+    ->authenticatedRequest('GET', 'https://sample.api.example.com/v2/data?p=2');
   $successResponse = (string) $response->getBody();
 }
 catch (\Exception $e) {
