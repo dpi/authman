@@ -208,7 +208,7 @@ class AuthmanAuthInfoForm extends EntityForm {
     $accessTokenKey->setKeyValue($values);
     $accessTokenKey->save();
 
-    $this->messenger->addError('Deleted access token.');
+    $this->messenger->addMessage('Deleted access token.');
   }
 
   /**
