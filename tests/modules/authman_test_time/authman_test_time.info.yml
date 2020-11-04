@@ -1,0 +1,4 @@
+name: Authman Test Time
+description: 'Provides a time simulator.'
+core_version_requirement: ^8.8 || ~9.0
+type: module

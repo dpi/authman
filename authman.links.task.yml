@@ -1,0 +1,14 @@
+entity.authman_auth.information:
+  title: 'Info'
+  route_name: entity.authman_auth.information
+  base_route: entity.authman_auth.information
+
+entity.authman_auth.edit_form:
+  title: 'Edit'
+  route_name: entity.authman_auth.edit_form
+  base_route: entity.authman_auth.information
+
+entity.authman_auth.delete_form:
+  title: 'Delete'
+  route_name: entity.authman_auth.delete_form
+  base_route: entity.authman_auth.information

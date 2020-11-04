@@ -1,0 +1,22 @@
+# @todo #96
+authman.authorization_code.start:
+  path: '/admin/config/authman/oauth/start/{authman_auth}'
+  defaults:
+    _controller: 'Drupal\authman\Controller\AuthmanOauthAuthorizationCodeController::start'
+  requirements:
+    _permission: 'configure authman'
+  parameters:
+    authman_auth:
+      type: 'authman_auth'
+
+# @todo #96
+authman.authorization_code.receive:
+  path: '/admin/config/authman/oauth/receive/{authman_auth}'
+  defaults:
+    _controller: 'Drupal\authman\Controller\AuthmanOauthAuthorizationCodeController::receive'
+  requirements:
+    _permission: 'configure authman'
+    _authman_authorization_code_receive: 'TRUE'
+  parameters:
+    authman_auth:
+      type: 'authman_auth'

@@ -1,0 +1,5 @@
+entity.authman_auth.collection:
+  title: 'Authman instances'
+  description: 'Manage instances of Oauth connections'
+  route_name: entity.authman_auth.collection
+  parent: system.admin_config_services

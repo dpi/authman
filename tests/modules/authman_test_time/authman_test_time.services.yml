@@ -1,0 +1,4 @@
+services:
+  datetime.time:
+    class: Drupal\authman_test_time\TimeMachine
+    arguments: ['@state']

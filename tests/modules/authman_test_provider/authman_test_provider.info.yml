@@ -1,0 +1,7 @@
+name: Authman test provider
+description: 'Provides a test provider configs'
+core_version_requirement: ^8.8 || ~9.0
+type: module
+dependencies:
+  - authman:authman
+  - key_test:key_test

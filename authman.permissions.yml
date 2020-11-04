@@ -1,0 +1,4 @@
+configure authman:
+  title: 'Configure authman'
+  description: 'Configure authman oauth instances.'
+  restrict access: true

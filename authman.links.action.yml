@@ -1,0 +1,5 @@
+entity.authman_auth.add_form:
+  route_name: entity.authman_auth.add_form
+  title: 'Add instance'
+  appears_on:
+    - 'entity.authman_auth.collection'

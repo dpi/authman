@@ -1,0 +1,5 @@
+authman_auth.settings.authman_test_providers_authorization_code:
+  type: authman_auth.settings_base
+  mapping:
+    foo:
+      type: string

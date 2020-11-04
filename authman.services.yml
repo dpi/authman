@@ -1,0 +1,14 @@
+services:
+  plugin.manager.authman:
+    class: Drupal\authman\AuthmanPluginManager
+    parent: default_plugin_manager
+
+  authman.oauth:
+    class: Drupal\authman\AuthmanInstance\AuthmanOauthFactory
+    arguments: ['@entity_type.manager']
+
+  access_check.authman.authorization_code_receive:
+    class: Drupal\authman\Access\AuthmanAuthorizationCodeReceive
+    arguments: ['@tempstore.private']
+    tags:
+      - { name: access_check, applies_to: _authman_authorization_code_receive }

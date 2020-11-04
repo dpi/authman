@@ -1,0 +1,70 @@
+authman.authman_auth.*:
+  type: config_entity
+  label: 'Authman instance configuration'
+  mapping:
+    id:
+      type: string
+      label: 'machine name'
+    label:
+      type: label
+      label: 'label'
+    plugin:
+      type: string
+      label: 'plugin type'
+    grant_type:
+      type: string
+      label: 'Grant type'
+    client_key:
+      type: string
+      label: 'Client key ID'
+    access_token_key:
+      type: string
+      label: 'Access token key ID'
+    settings:
+      type: authman_auth.settings.[%parent.plugin]
+
+authman_auth.settings.*:
+  type: authman_auth.settings_base
+
+key.type.authman_oauth_access_token:
+  type: mapping
+  label: 'Access key type'
+  mapping: []
+
+key.type.authman_oauth_client:
+  type: mapping
+  label: 'Client key type'
+  mapping: []
+
+key.input.authman_oauth_access_token:
+  type: mapping
+  mapping:
+    refresh_token:
+      type: string
+      label: 'Refresh token'
+    access_token:
+      type: string
+      label: 'Access token'
+    token_type:
+      type: string
+      label: 'Token type'
+    expires:
+      type: integer
+      label: 'Expires'
+
+key.input.authman_oauth_client:
+  type: mapping
+  mapping:
+    client_id:
+      type: string
+      label: 'Client ID'
+    client_secret:
+      type: string
+      label: 'Client secret'
+    account_id:
+      type: string
+      label: 'Account ID'
+
+authman_auth.settings_base:
+  type: mapping
+  mapping: []
