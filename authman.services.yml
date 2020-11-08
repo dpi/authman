@@ -5,7 +5,7 @@ services:
 
   authman.oauth:
     class: Drupal\authman\AuthmanInstance\AuthmanOauthFactory
-    arguments: ['@entity_type.manager']
+    arguments: ['@entity_type.manager', '@datetime.time']
 
   access_check.authman.authorization_code_receive:
     class: Drupal\authman\Access\AuthmanAuthorizationCodeReceive

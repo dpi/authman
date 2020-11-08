@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Drupal\authman\AuthmanInstance;
 
+use Drupal\authman\AuthmanClock;
 use Drupal\authman\Entity\AuthmanAuthInterface;
 use Drupal\authman\EntityHandlers\AuthmanAuthStorage;
 use Drupal\authman\Exception\AuthmanClientCredentialsException;
@@ -12,6 +13,7 @@ use Drupal\authman\Exception\AuthmanKeyException;
 use Drupal\authman\Exception\AuthmanPluginException;
 use Drupal\authman\Plugin\KeyType\OauthKeyTypeInterface;
 use Drupal\authman\Token\AuthmanAccessToken;
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Url;
@@ -32,13 +34,23 @@ class AuthmanOauthFactory implements AuthmanOauthFactoryInterface {
   protected $entityTypeManager;
 
   /**
+   * Time.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected TimeInterface $time;
+
+  /**
    * AuthmanOauthFactory constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
+   * @param \Drupal\Component\Datetime\TimeInterface $time
+   *   Time.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, TimeInterface $time) {
     $this->entityTypeManager = $entityTypeManager;
+    $this->time = $time;
   }
 
   /**
@@ -50,9 +62,11 @@ class AuthmanOauthFactory implements AuthmanOauthFactoryInterface {
       throw new \InvalidArgumentException('Invalid ID');
     }
 
+    $clock = new AuthmanClock($this->time);
     $redirectUri = Url::fromRoute('authman.authorization_code.receive', ['authman_auth' => $authmanConfig->id()]);
     $providerOptions = [
       'redirectUri' => $redirectUri->setAbsolute()->toString(TRUE)->getGeneratedUrl(),
+      'clock' => $clock,
     ];
 
     $clientKey = $this->keyStorage()->load($authmanConfig->getClientKeyId());
